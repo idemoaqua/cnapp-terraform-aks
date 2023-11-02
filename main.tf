@@ -1,6 +1,9 @@
 resource "azurerm_resource_group" "cnapp_rsg" {
   location = var.resource_group_location
   name     = var.resource_group_name
+  tags = {
+    yor_trace = "310df0dc-4af4-4446-878f-a0dfc6049cd8"
+  }
 }
 
 resource "azurerm_kubernetes_cluster" "k8s" {
@@ -28,5 +31,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   network_profile {
     network_plugin    = "kubenet"
     load_balancer_sku = "standard"
+  }
+  tags = {
+    yor_trace = "c56965b6-2a2d-40a0-9dc9-8c7490be11ea"
   }
 }
